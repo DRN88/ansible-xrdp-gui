@@ -10,10 +10,7 @@ Vagrant.configure(2) do |config|
     end
     box1.vm.box_url = "http://cloud.centos.org/centos/7/vagrant/x86_64/images/CentOS-7-x86_64-Vagrant-1709_01.VirtualBox.box"
     box1.vm.network "private_network", ip: "192.168.123.10", virtualbox__intnet: true, nic_type: "virtio"
-    # box1.vm.network "public_network", bridge: "Broadcom NetXtreme Gigabit Ethernet"
-    #box1.vm.synced_folder '.', '/home/vagrant/sync', disabled: true
     box1.vm.synced_folder ".", "/vagrant", type: "virtualbox"
-    #box1.vm.network "forwarded_port", guest: 22, host: 2001, host_ip: "0.0.0.0", guest_ip: "192.168.123.10"
     box1.vm.network "forwarded_port", guest: 13389, host: 3389, host_ip: "0.0.0.0", guest_ip: "192.168.123.10"
     box1.vm.provider "virtualbox" do |v|
       v.customize ["modifyvm", :id, "--nictype1", "virtio"]

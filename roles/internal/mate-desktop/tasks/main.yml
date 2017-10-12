@@ -44,7 +44,7 @@
 
 - name: Deploy light1.png
   copy:
-    src: 'Light/light1.png'
+    src: 'Light1/light1.png'
     dest: '/usr/share/backgrounds/light1.png'
     owner: 'root'
     group: 'root'
