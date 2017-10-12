@@ -1,0 +1,8 @@
+---
+
+- name: main.yml
+  hosts: 'all'
+  roles:
+    - { role: mate-desktop, tags: ['mate-desktop'] }
+    - { role: xrdp, tags: ['xrdp'] }
+    - { role: common, tags: ['common'] }

@@ -1,0 +1,11 @@
+---
+
+# - name: Install useful GUI packages
+#   yum:
+#     name: "{{ item }}"
+#     state: 'installed'
+#     skip_broken: 'yes'
+#   with_items:
+#     - 'atom'
+#     - 'terminator'
+#   ignore_errors: 'yes'

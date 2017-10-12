@@ -1,0 +1,11 @@
+---
+
+- name: restart_xrdp
+  service:
+    name: 'xrdp'
+    state: 'restarted'
+
+# - name: restart_xrdpsesman
+#   service:
+#     name: 'xrdp-sesman'
+#     state: 'restarted'

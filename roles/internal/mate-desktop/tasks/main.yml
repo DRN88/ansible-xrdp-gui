@@ -1,0 +1,101 @@
+---
+
+- name: Installing Mate Desktop - THIS WILL TAKE A WHILE
+  yum:
+    name: "{{ item }}"
+    state: 'installed'
+    exclude:
+      - 'NetworkManager'
+      - 'mate-power-manager'
+    skip_broken: 'yes'
+  with_items:
+    - '@Server with GUI'
+    - '@X Window system'
+    - '@MATE Desktop'
+    - '@admin-tools'
+    - '@base-x'
+    - '@core'
+    - '@dial-up'
+    - '@fonts'
+    - '@guest-desktop-agents'
+    - '@hardware-support'
+    - '@input-methods'
+    - '@mate-desktop'
+    - '@multimedia'
+    - '@printing'
+    - '@standard'
+    - 'mate-session-manager'
+    - 'xterm'
+  ignore_errors: 'yes'
+
+- name: Uninstall packages
+  yum:
+    name: "{{ item }}"
+    state: 'absent'
+  with_items:
+    - 'NetworkManager'
+    - 'mate-power-manager'
+
+- name: systemctl set-default graphical.target
+  command: systemctl set-default graphical.target
+
+- name: systemctl isolate graphical.target
+  command: systemctl isolate graphical.target
+
+- name: Deploy light1.png
+  copy:
+    src: 'Light/light1.png'
+    dest: '/usr/share/backgrounds/light1.png'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: Deploy dark1.png
+  copy:
+    src: 'Dark1/dark1.png'
+    dest: '/usr/share/backgrounds/dark1.png'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: Create Theme folders
+  file:
+    path: "/usr/share/themes/{{ item }}"
+    state: 'directory'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+  with_items:
+    - 'Light1'
+    - 'Dark1'
+
+- name: Deploy Light1 theme
+  copy:
+    src: 'Light1/index.theme'
+    dest: '/usr/share/themes/Light1/index.theme'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: Deploy Dark1 theme
+  copy:
+    src: 'Dark1/index.theme'
+    dest: '/usr/share/themes/Dark1/index.theme'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+
+- name: Deploy config for default theme
+  template:
+    src: 'usr/share/glib-2.0/schemas/60_customxrdp.gschema.override.j2'
+    dest: '/usr/share/glib-2.0/schemas/60_customxrdp.gschema.override'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: glib_compile_schemas
+
+# if it is neeeded finish this
+# [root@lxcentos7test01 xrdp]# cat /etc/dconf/db/local.d/10-disablelogout
+# #[org/mate/desktop/lockdown]
+# #disable-log-out = true
+# #disable-user-switching = true

@@ -1,0 +1,5 @@
+---
+
+# Run extensions/update_galaxy.sh to download these
+
+#- src: https://github.com/elastic/ansible-elasticsearch.git

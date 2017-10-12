@@ -1,0 +1,68 @@
+---
+
+- name: Install xrdp
+  yum:
+    name: 'xrdp'
+    state: 'installed'
+
+- name: Deploy theming assets
+  copy:
+    src: "etc/xrdp/{{ item }}"
+    dest: "/etc/xrdp/{{ item }}"
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  with_items:
+    - 'logo1.bmp'
+
+- name: Deploy xrdp.ini template
+  template:
+    src: 'etc/xrdp/xrdp.ini.j2'
+    dest: '/etc/xrdp/xrdp.ini'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: restart_xrdp
+
+- name: Deploy sesman.ini template
+  template:
+    src: 'etc/xrdp/sesman.ini.j2'
+    dest: '/etc/xrdp/sesman.ini'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: restart_xrdp
+
+- name: Deploy xrdp_keyboard.ini template
+  template:
+    src: 'etc/xrdp/xrdp_keyboard.ini.j2'
+    dest: '/etc/xrdp/xrdp_keyboard.ini'
+    owner: 'root'
+    group: 'root'
+    mode: '0644'
+  notify: restart_xrdp
+
+- name: Deploy startwm-mate-session.sh template
+  template:
+    src: 'usr/libexec/xrdp/startwm-mate-session.sh.j2'
+    dest: '/usr/libexec/xrdp/startwm-mate-session.sh'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+
+- name: Deploy startwm-xterm.sh template
+  template:
+    src: 'usr/libexec/xrdp/startwm-xterm.sh.j2'
+    dest: '/usr/libexec/xrdp/startwm-xterm.sh'
+    owner: 'root'
+    group: 'root'
+    mode: '0755'
+
+- name: Ensure services are running and enabled
+  service:
+    name: "{{ item }}"
+    state: 'started'
+    enabled: 'yes'
+  with_items:
+    - 'xrdp'
+    - 'xrdp-sesman'

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Light1
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=TraditionalOk
+MetacityTheme=TraditionalOk
+IconTheme=mate
+GtkColorScheme=base_color:#ffffff,fg_color:#000000,tooltip_fg_color:#000000,selected_bg_color:#86abd9,selected_fg_color:#ffffff,text_color:#1a1a1a,bg_color:#edeceb,tooltip_bg_color:#f5f5b5,link_color:#0000ee,visited_link_color:#551a8b
+CursorTheme=mate
+CursorSize=24
+BackgroundImage=/usr/share/backgrounds/light1.png

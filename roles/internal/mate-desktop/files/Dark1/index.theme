@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Dark1
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=BlackMATE
+MetacityTheme=Adwaita
+IconTheme=mate
+GtkColorScheme=
+CursorTheme=mate
+CursorSize=24
+BackgroundImage=/usr/share/backgrounds/dark1.png
