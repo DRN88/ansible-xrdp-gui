@@ -15,6 +15,6 @@ EOT
 echo "THIS WILL TAKE A WHILE"
 echo "THIS WILL TAKE A WHILE"
 echo "THIS WILL TAKE A WHILE"
-echo "THIS WILL TAKE A WHILE"
-echo "THIS WILL TAKE A WHILE"
 sudo ansible-pull --purge --clean --force --url="https://github.com/DRN88/ansible-xrdp-gui.git" --checkout="master" --inventory="environments/local/inventory" playbooks/local.yml
+echo "FINISHED"
+echo "TRY TO LOG IN WITH MSTSC: mstsc /v:localhost:13389"
