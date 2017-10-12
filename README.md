@@ -36,15 +36,6 @@ yum -y install git ansible htop
 sudo ansible-pull --purge --clean --force --url="https://github.com/DRN88/ansible-xrdp-gui.git" --checkout="master" --inventory="environments/local/inventory" playbooks/local.yml
 ```
 
-## Installation
-* Only new builds on CentOS 7 and RHEL 7 works deployed with `ansible-spacewalk` project
-* Misc folder a script provides an installer: `run-ansible-xrdp-gui.sh`
-
-## About MATE Desktop
-* GNOME2 fork
-* Clean and simple look and feel
-* Perfect for work
-
 ## Custom Themes available
 Added 2 backgrounds and reusing some built-in themes:
 * Light1 (default)
