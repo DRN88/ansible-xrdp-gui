@@ -17,4 +17,4 @@ echo "THIS WILL TAKE A WHILE"
 echo "THIS WILL TAKE A WHILE"
 echo "THIS WILL TAKE A WHILE"
 echo "THIS WILL TAKE A WHILE"
-sudo ansible-pull --purge --clean --force --url="https://github.com/DRN88/ansible-xrdp-gui.git" --checkout="master" --inventory="environments/local/inventory" playbooks/local.yml -v
+sudo ansible-pull --purge --clean --force --url="https://github.com/DRN88/ansible-xrdp-gui.git" --checkout="master" --inventory="environments/local/inventory" playbooks/local.yml
