@@ -1,5 +1,11 @@
 # Ansible XRDP GUI Project
 
+## Update
+```bash
+# Add this to the end of your /etc/bashrc to allow apps to run as root with gui
+xhost +si:localuser:root
+```
+
 ### XRDP provides great:
 * RDP Protocol compatibility
 * TLS encrytion
