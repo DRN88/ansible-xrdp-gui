@@ -3,7 +3,7 @@
 ## Update
 ```bash
 # Add this to the end of your /etc/bashrc to allow apps to run as root with gui
-xhost +si:localuser:root
+xhost +si:localuser:root 2> /dev/null
 
 # Then you can just run this: sudo caja
 ```
