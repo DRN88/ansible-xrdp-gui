@@ -4,6 +4,8 @@
 ```bash
 # Add this to the end of your /etc/bashrc to allow apps to run as root with gui
 xhost +si:localuser:root
+
+# Then you can just run this: sudo caja
 ```
 
 ### XRDP provides great:
